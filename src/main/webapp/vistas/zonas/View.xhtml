@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewZonasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewZonasLabel_codzona}"/>
+                    <h:outputText value="#{zonasController.selected.codzona}" title="#{bundle.ViewZonasTitle_codzona}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_codestablecimiento}"/>
+                    <h:outputText value="#{zonasController.selected.codestablecimiento}" title="#{bundle.ViewZonasTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_denominacion}"/>
+                    <h:outputText value="#{zonasController.selected.denominacion}" title="#{bundle.ViewZonasTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_codusuario}"/>
+                    <h:outputText value="#{zonasController.selected.codusuario}" title="#{bundle.ViewZonasTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_condicion}"/>
+                    <h:outputText value="#{zonasController.selected.condicion}" title="#{bundle.ViewZonasTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_estado}"/>
+                    <h:outputText value="#{zonasController.selected.estado}" title="#{bundle.ViewZonasTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewZonasLabel_fechareg}"/>
+                    <h:outputText value="#{zonasController.selected.fechareg}" title="#{bundle.ViewZonasTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{zonasController.destroyAndView}" value="#{bundle.ViewZonasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewZonasEditLink}"/>
+                <br />
+                <h:commandLink action="#{zonasController.prepareCreate}" value="#{bundle.ViewZonasCreateLink}" />
+                <br />
+                <h:commandLink action="#{zonasController.prepareList}" value="#{bundle.ViewZonasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewZonasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

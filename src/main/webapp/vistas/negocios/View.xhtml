@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNegociosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNegociosLabel_codnegocio}"/>
+                    <h:outputText value="#{negociosController.selected.codnegocio}" title="#{bundle.ViewNegociosTitle_codnegocio}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_codestablecimiento}"/>
+                    <h:outputText value="#{negociosController.selected.codestablecimiento}" title="#{bundle.ViewNegociosTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_codperiodocontable}"/>
+                    <h:outputText value="#{negociosController.selected.codperiodocontable}" title="#{bundle.ViewNegociosTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_denominacion}"/>
+                    <h:outputText value="#{negociosController.selected.denominacion}" title="#{bundle.ViewNegociosTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_codusuario}"/>
+                    <h:outputText value="#{negociosController.selected.codusuario}" title="#{bundle.ViewNegociosTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_condicion}"/>
+                    <h:outputText value="#{negociosController.selected.condicion}" title="#{bundle.ViewNegociosTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_estado}"/>
+                    <h:outputText value="#{negociosController.selected.estado}" title="#{bundle.ViewNegociosTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewNegociosLabel_fechareg}"/>
+                    <h:outputText value="#{negociosController.selected.fechareg}" title="#{bundle.ViewNegociosTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{negociosController.destroyAndView}" value="#{bundle.ViewNegociosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewNegociosEditLink}"/>
+                <br />
+                <h:commandLink action="#{negociosController.prepareCreate}" value="#{bundle.ViewNegociosCreateLink}" />
+                <br />
+                <h:commandLink action="#{negociosController.prepareList}" value="#{bundle.ViewNegociosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewNegociosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

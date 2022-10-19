@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFeriadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_codferiado}"/>
+                    <h:outputText value="#{feriadosController.selected.codferiado}" title="#{bundle.ViewFeriadosTitle_codferiado}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_codestablecimiento}"/>
+                    <h:outputText value="#{feriadosController.selected.codestablecimiento}" title="#{bundle.ViewFeriadosTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_codperiodocontable}"/>
+                    <h:outputText value="#{feriadosController.selected.codperiodocontable}" title="#{bundle.ViewFeriadosTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_denominacion}"/>
+                    <h:outputText value="#{feriadosController.selected.denominacion}" title="#{bundle.ViewFeriadosTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_fechaFeriado}"/>
+                    <h:outputText value="#{feriadosController.selected.fechaFeriado}" title="#{bundle.ViewFeriadosTitle_fechaFeriado}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_lastcodusuario}"/>
+                    <h:outputText value="#{feriadosController.selected.lastcodusuario}" title="#{bundle.ViewFeriadosTitle_lastcodusuario}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_lastfechaupdate}"/>
+                    <h:outputText value="#{feriadosController.selected.lastfechaupdate}" title="#{bundle.ViewFeriadosTitle_lastfechaupdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_codusuario}"/>
+                    <h:outputText value="#{feriadosController.selected.codusuario}" title="#{bundle.ViewFeriadosTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_condicion}"/>
+                    <h:outputText value="#{feriadosController.selected.condicion}" title="#{bundle.ViewFeriadosTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_estado}"/>
+                    <h:outputText value="#{feriadosController.selected.estado}" title="#{bundle.ViewFeriadosTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewFeriadosLabel_fechareg}"/>
+                    <h:outputText value="#{feriadosController.selected.fechareg}" title="#{bundle.ViewFeriadosTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{feriadosController.destroyAndView}" value="#{bundle.ViewFeriadosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFeriadosEditLink}"/>
+                <br />
+                <h:commandLink action="#{feriadosController.prepareCreate}" value="#{bundle.ViewFeriadosCreateLink}" />
+                <br />
+                <h:commandLink action="#{feriadosController.prepareList}" value="#{bundle.ViewFeriadosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFeriadosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

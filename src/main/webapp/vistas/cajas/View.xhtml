@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCajasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCajasLabel_codcaja}"/>
+                    <h:outputText value="#{cajasController.selected.codcaja}" title="#{bundle.ViewCajasTitle_codcaja}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codestablecimiento}"/>
+                    <h:outputText value="#{cajasController.selected.codestablecimiento}" title="#{bundle.ViewCajasTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codtipocaja}"/>
+                    <h:outputText value="#{cajasController.selected.codtipocaja}" title="#{bundle.ViewCajasTitle_codtipocaja}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_denominacion}"/>
+                    <h:outputText value="#{cajasController.selected.denominacion}" title="#{bundle.ViewCajasTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_numeroCaja}"/>
+                    <h:outputText value="#{cajasController.selected.numeroCaja}" title="#{bundle.ViewCajasTitle_numeroCaja}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codcartera}"/>
+                    <h:outputText value="#{cajasController.selected.codcartera}" title="#{bundle.ViewCajasTitle_codcartera}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_lastcodusuario}"/>
+                    <h:outputText value="#{cajasController.selected.lastcodusuario}" title="#{bundle.ViewCajasTitle_lastcodusuario}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_lastfechaupdate}"/>
+                    <h:outputText value="#{cajasController.selected.lastfechaupdate}" title="#{bundle.ViewCajasTitle_lastfechaupdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codusuario}"/>
+                    <h:outputText value="#{cajasController.selected.codusuario}" title="#{bundle.ViewCajasTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_condicion}"/>
+                    <h:outputText value="#{cajasController.selected.condicion}" title="#{bundle.ViewCajasTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_estado}"/>
+                    <h:outputText value="#{cajasController.selected.estado}" title="#{bundle.ViewCajasTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_fechareg}"/>
+                    <h:outputText value="#{cajasController.selected.fechareg}" title="#{bundle.ViewCajasTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cajasController.destroyAndView}" value="#{bundle.ViewCajasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCajasEditLink}"/>
+                <br />
+                <h:commandLink action="#{cajasController.prepareCreate}" value="#{bundle.ViewCajasCreateLink}" />
+                <br />
+                <h:commandLink action="#{cajasController.prepareList}" value="#{bundle.ViewCajasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCajasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

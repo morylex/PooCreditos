@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCajasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_codcaja}" for="codcaja" />
+                    <h:inputText id="codcaja" value="#{cajasController.selected.codcaja}" title="#{bundle.CreateCajasTitle_codcaja}" required="true" requiredMessage="#{bundle.CreateCajasRequiredMessage_codcaja}"/>
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{cajasController.selected.codestablecimiento}" title="#{bundle.CreateCajasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_codtipocaja}" for="codtipocaja" />
+                    <h:inputText id="codtipocaja" value="#{cajasController.selected.codtipocaja}" title="#{bundle.CreateCajasTitle_codtipocaja}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{cajasController.selected.denominacion}" title="#{bundle.CreateCajasTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_numeroCaja}" for="numeroCaja" />
+                    <h:inputText id="numeroCaja" value="#{cajasController.selected.numeroCaja}" title="#{bundle.CreateCajasTitle_numeroCaja}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_codcartera}" for="codcartera" />
+                    <h:inputText id="codcartera" value="#{cajasController.selected.codcartera}" title="#{bundle.CreateCajasTitle_codcartera}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_lastcodusuario}" for="lastcodusuario" />
+                    <h:inputText id="lastcodusuario" value="#{cajasController.selected.lastcodusuario}" title="#{bundle.CreateCajasTitle_lastcodusuario}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{cajasController.selected.lastfechaupdate}" title="#{bundle.CreateCajasTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{cajasController.selected.codusuario}" title="#{bundle.CreateCajasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{cajasController.selected.condicion}" title="#{bundle.CreateCajasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{cajasController.selected.estado}" title="#{bundle.CreateCajasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCajasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{cajasController.selected.fechareg}" title="#{bundle.CreateCajasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cajasController.create}" value="#{bundle.CreateCajasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cajasController.prepareList}" value="#{bundle.CreateCajasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCajasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

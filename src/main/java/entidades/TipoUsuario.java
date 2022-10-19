@@ -20,8 +20,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,7 +27,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "tipo_usuario", catalog = "curso_poo_creditos", schema = "")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TipoUsuario.findAll", query = "SELECT t FROM TipoUsuario t"),
     @NamedQuery(name = "TipoUsuario.findByCodtipousuario", query = "SELECT t FROM TipoUsuario t WHERE t.codtipousuario = :codtipousuario"),
@@ -116,7 +113,6 @@ public class TipoUsuario implements Serializable {
         this.fechareg = fechareg;
     }
 
-    @XmlTransient
     public List<Usuarios> getUsuariosList() {
         return usuariosList;
     }

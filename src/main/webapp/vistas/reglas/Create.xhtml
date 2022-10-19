@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateReglasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codregla}" for="codregla" />
+                    <h:inputText id="codregla" value="#{reglasController.selected.codregla}" title="#{bundle.CreateReglasTitle_codregla}" required="true" requiredMessage="#{bundle.CreateReglasRequiredMessage_codregla}"/>
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{reglasController.selected.codestablecimiento}" title="#{bundle.CreateReglasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{reglasController.selected.codperiodocontable}" title="#{bundle.CreateReglasTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codtasa}" for="codtasa" />
+                    <h:inputText id="codtasa" value="#{reglasController.selected.codtasa}" title="#{bundle.CreateReglasTitle_codtasa}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codtiempo}" for="codtiempo" />
+                    <h:inputText id="codtiempo" value="#{reglasController.selected.codtiempo}" title="#{bundle.CreateReglasTitle_codtiempo}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_lastcodusuario}" for="lastcodusuario" />
+                    <h:inputText id="lastcodusuario" value="#{reglasController.selected.lastcodusuario}" title="#{bundle.CreateReglasTitle_lastcodusuario}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{reglasController.selected.lastfechaupdate}" title="#{bundle.CreateReglasTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{reglasController.selected.codusuario}" title="#{bundle.CreateReglasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{reglasController.selected.condicion}" title="#{bundle.CreateReglasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{reglasController.selected.estado}" title="#{bundle.CreateReglasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateReglasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{reglasController.selected.fechareg}" title="#{bundle.CreateReglasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{reglasController.create}" value="#{bundle.CreateReglasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{reglasController.prepareList}" value="#{bundle.CreateReglasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateReglasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

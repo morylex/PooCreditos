@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTasasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_codtasa}" for="codtasa" />
+                    <h:inputText id="codtasa" value="#{tasasController.selected.codtasa}" title="#{bundle.CreateTasasTitle_codtasa}" required="true" requiredMessage="#{bundle.CreateTasasRequiredMessage_codtasa}"/>
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{tasasController.selected.codestablecimiento}" title="#{bundle.CreateTasasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{tasasController.selected.codperiodocontable}" title="#{bundle.CreateTasasTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_tasa}" for="tasa" />
+                    <h:inputText id="tasa" value="#{tasasController.selected.tasa}" title="#{bundle.CreateTasasTitle_tasa}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_lastcodusuario}" for="lastcodusuario" />
+                    <h:inputText id="lastcodusuario" value="#{tasasController.selected.lastcodusuario}" title="#{bundle.CreateTasasTitle_lastcodusuario}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{tasasController.selected.lastfechaupdate}" title="#{bundle.CreateTasasTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{tasasController.selected.codusuario}" title="#{bundle.CreateTasasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{tasasController.selected.condicion}" title="#{bundle.CreateTasasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{tasasController.selected.estado}" title="#{bundle.CreateTasasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateTasasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{tasasController.selected.fechareg}" title="#{bundle.CreateTasasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tasasController.create}" value="#{bundle.CreateTasasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tasasController.prepareList}" value="#{bundle.CreateTasasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTasasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

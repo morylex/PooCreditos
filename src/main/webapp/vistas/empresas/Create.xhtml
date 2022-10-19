@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmpresasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_codempresa}" for="codempresa" />
+                    <h:inputText id="codempresa" value="#{empresasController.selected.codempresa}" title="#{bundle.CreateEmpresasTitle_codempresa}" required="true" requiredMessage="#{bundle.CreateEmpresasRequiredMessage_codempresa}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_ruc}" for="ruc" />
+                    <h:inputText id="ruc" value="#{empresasController.selected.ruc}" title="#{bundle.CreateEmpresasTitle_ruc}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_razonsocial}" for="razonsocial" />
+                    <h:inputText id="razonsocial" value="#{empresasController.selected.razonsocial}" title="#{bundle.CreateEmpresasTitle_razonsocial}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_nombreComercial}" for="nombreComercial" />
+                    <h:inputText id="nombreComercial" value="#{empresasController.selected.nombreComercial}" title="#{bundle.CreateEmpresasTitle_nombreComercial}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{empresasController.selected.direccion}" title="#{bundle.CreateEmpresasTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_flagLogo}" for="flagLogo" />
+                    <h:inputText id="flagLogo" value="#{empresasController.selected.flagLogo}" title="#{bundle.CreateEmpresasTitle_flagLogo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{empresasController.selected.logo}" title="#{bundle.CreateEmpresasTitle_logo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_nombreLogo}" for="nombreLogo" />
+                    <h:inputText id="nombreLogo" value="#{empresasController.selected.nombreLogo}" title="#{bundle.CreateEmpresasTitle_nombreLogo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_origenLogo}" for="origenLogo" />
+                    <h:inputText id="origenLogo" value="#{empresasController.selected.origenLogo}" title="#{bundle.CreateEmpresasTitle_origenLogo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{empresasController.selected.codusuario}" title="#{bundle.CreateEmpresasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{empresasController.selected.condicion}" title="#{bundle.CreateEmpresasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{empresasController.selected.estado}" title="#{bundle.CreateEmpresasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{empresasController.selected.fechareg}" title="#{bundle.CreateEmpresasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{empresasController.create}" value="#{bundle.CreateEmpresasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{empresasController.prepareList}" value="#{bundle.CreateEmpresasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEmpresasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

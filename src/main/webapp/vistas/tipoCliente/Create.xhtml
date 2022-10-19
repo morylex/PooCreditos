@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTipoClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_codtipocliente}" for="codtipocliente" />
+                    <h:inputText id="codtipocliente" value="#{tipoClienteController.selected.codtipocliente}" title="#{bundle.CreateTipoClienteTitle_codtipocliente}" required="true" requiredMessage="#{bundle.CreateTipoClienteRequiredMessage_codtipocliente}"/>
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{tipoClienteController.selected.denominacion}" title="#{bundle.CreateTipoClienteTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{tipoClienteController.selected.codusuario}" title="#{bundle.CreateTipoClienteTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{tipoClienteController.selected.condicion}" title="#{bundle.CreateTipoClienteTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{tipoClienteController.selected.estado}" title="#{bundle.CreateTipoClienteTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateTipoClienteLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{tipoClienteController.selected.fechareg}" title="#{bundle.CreateTipoClienteTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tipoClienteController.create}" value="#{bundle.CreateTipoClienteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tipoClienteController.prepareList}" value="#{bundle.CreateTipoClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTipoClienteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

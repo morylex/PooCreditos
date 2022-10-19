@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewClientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewClientesLabel_codcliente}"/>
+                    <h:outputText value="#{clientesController.selected.codcliente}" title="#{bundle.ViewClientesTitle_codcliente}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codestablecimiento}"/>
+                    <h:outputText value="#{clientesController.selected.codestablecimiento}" title="#{bundle.ViewClientesTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codperiodocontable}"/>
+                    <h:outputText value="#{clientesController.selected.codperiodocontable}" title="#{bundle.ViewClientesTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codtipocliente}"/>
+                    <h:outputText value="#{clientesController.selected.codtipocliente}" title="#{bundle.ViewClientesTitle_codtipocliente}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_numeroDocumento}"/>
+                    <h:outputText value="#{clientesController.selected.numeroDocumento}" title="#{bundle.ViewClientesTitle_numeroDocumento}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_apellidoPaterno}"/>
+                    <h:outputText value="#{clientesController.selected.apellidoPaterno}" title="#{bundle.ViewClientesTitle_apellidoPaterno}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_apellidoMaterno}"/>
+                    <h:outputText value="#{clientesController.selected.apellidoMaterno}" title="#{bundle.ViewClientesTitle_apellidoMaterno}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_nombres}"/>
+                    <h:outputText value="#{clientesController.selected.nombres}" title="#{bundle.ViewClientesTitle_nombres}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_nombreCompleto}"/>
+                    <h:outputText value="#{clientesController.selected.nombreCompleto}" title="#{bundle.ViewClientesTitle_nombreCompleto}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_direccion}"/>
+                    <h:outputText value="#{clientesController.selected.direccion}" title="#{bundle.ViewClientesTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codnegocio}"/>
+                    <h:outputText value="#{clientesController.selected.codnegocio}" title="#{bundle.ViewClientesTitle_codnegocio}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_direccionNegocio}"/>
+                    <h:outputText value="#{clientesController.selected.direccionNegocio}" title="#{bundle.ViewClientesTitle_direccionNegocio}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codzona}"/>
+                    <h:outputText value="#{clientesController.selected.codzona}" title="#{bundle.ViewClientesTitle_codzona}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_recomendacion}"/>
+                    <h:outputText value="#{clientesController.selected.recomendacion}" title="#{bundle.ViewClientesTitle_recomendacion}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_referencia}"/>
+                    <h:outputText value="#{clientesController.selected.referencia}" title="#{bundle.ViewClientesTitle_referencia}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_montoTope}"/>
+                    <h:outputText value="#{clientesController.selected.montoTope}" title="#{bundle.ViewClientesTitle_montoTope}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_inhabilitado}"/>
+                    <h:outputText value="#{clientesController.selected.inhabilitado}" title="#{bundle.ViewClientesTitle_inhabilitado}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_sinpedir}"/>
+                    <h:outputText value="#{clientesController.selected.sinpedir}" title="#{bundle.ViewClientesTitle_sinpedir}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_telefono01}"/>
+                    <h:outputText value="#{clientesController.selected.telefono01}" title="#{bundle.ViewClientesTitle_telefono01}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_telefono02}"/>
+                    <h:outputText value="#{clientesController.selected.telefono02}" title="#{bundle.ViewClientesTitle_telefono02}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_email}"/>
+                    <h:outputText value="#{clientesController.selected.email}" title="#{bundle.ViewClientesTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_lastcodusuario}"/>
+                    <h:outputText value="#{clientesController.selected.lastcodusuario}" title="#{bundle.ViewClientesTitle_lastcodusuario}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_lastfechaupdate}"/>
+                    <h:outputText value="#{clientesController.selected.lastfechaupdate}" title="#{bundle.ViewClientesTitle_lastfechaupdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codusuario}"/>
+                    <h:outputText value="#{clientesController.selected.codusuario}" title="#{bundle.ViewClientesTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_condicion}"/>
+                    <h:outputText value="#{clientesController.selected.condicion}" title="#{bundle.ViewClientesTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_estado}"/>
+                    <h:outputText value="#{clientesController.selected.estado}" title="#{bundle.ViewClientesTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_fechareg}"/>
+                    <h:outputText value="#{clientesController.selected.fechareg}" title="#{bundle.ViewClientesTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewClientesLabel_flagCreditosActivos}"/>
+                    <h:outputText value="#{clientesController.selected.flagCreditosActivos}" title="#{bundle.ViewClientesTitle_flagCreditosActivos}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_flagPrestamosActivos}"/>
+                    <h:outputText value="#{clientesController.selected.flagPrestamosActivos}" title="#{bundle.ViewClientesTitle_flagPrestamosActivos}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_flagMoroso}"/>
+                    <h:outputText value="#{clientesController.selected.flagMoroso}" title="#{bundle.ViewClientesTitle_flagMoroso}"/>
+                    <h:outputText value="#{bundle.ViewClientesLabel_codtipodocumentoid}"/>
+                    <h:outputText value="#{clientesController.selected.codtipodocumentoid}" title="#{bundle.ViewClientesTitle_codtipodocumentoid}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clientesController.destroyAndView}" value="#{bundle.ViewClientesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewClientesEditLink}"/>
+                <br />
+                <h:commandLink action="#{clientesController.prepareCreate}" value="#{bundle.ViewClientesCreateLink}" />
+                <br />
+                <h:commandLink action="#{clientesController.prepareList}" value="#{bundle.ViewClientesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewClientesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

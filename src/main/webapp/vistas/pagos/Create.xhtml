@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codpago}" for="codpago" />
+                    <h:inputText id="codpago" value="#{pagosController.selected.codpago}" title="#{bundle.CreatePagosTitle_codpago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_codpago}"/>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{pagosController.selected.codestablecimiento}" title="#{bundle.CreatePagosTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{pagosController.selected.codperiodocontable}" title="#{bundle.CreatePagosTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codcredito}" for="codcredito" />
+                    <h:inputText id="codcredito" value="#{pagosController.selected.codcredito}" title="#{bundle.CreatePagosTitle_codcredito}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codcartera}" for="codcartera" />
+                    <h:inputText id="codcartera" value="#{pagosController.selected.codcartera}" title="#{bundle.CreatePagosTitle_codcartera}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_importe}" for="importe" />
+                    <h:inputText id="importe" value="#{pagosController.selected.importe}" title="#{bundle.CreatePagosTitle_importe}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_fechaPago}" for="fechaPago" />
+                    <h:inputText id="fechaPago" value="#{pagosController.selected.fechaPago}" title="#{bundle.CreatePagosTitle_fechaPago}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{pagosController.selected.codusuario}" title="#{bundle.CreatePagosTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{pagosController.selected.condicion}" title="#{bundle.CreatePagosTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{pagosController.selected.estado}" title="#{bundle.CreatePagosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{pagosController.selected.fechareg}" title="#{bundle.CreatePagosTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{pagosController.selected.lastfechaupdate}" title="#{bundle.CreatePagosTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pagosController.create}" value="#{bundle.CreatePagosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.CreatePagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

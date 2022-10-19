@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateNegociosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_codnegocio}" for="codnegocio" />
+                    <h:inputText id="codnegocio" value="#{negociosController.selected.codnegocio}" title="#{bundle.CreateNegociosTitle_codnegocio}" required="true" requiredMessage="#{bundle.CreateNegociosRequiredMessage_codnegocio}"/>
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{negociosController.selected.codestablecimiento}" title="#{bundle.CreateNegociosTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{negociosController.selected.codperiodocontable}" title="#{bundle.CreateNegociosTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{negociosController.selected.denominacion}" title="#{bundle.CreateNegociosTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{negociosController.selected.codusuario}" title="#{bundle.CreateNegociosTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{negociosController.selected.condicion}" title="#{bundle.CreateNegociosTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{negociosController.selected.estado}" title="#{bundle.CreateNegociosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateNegociosLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{negociosController.selected.fechareg}" title="#{bundle.CreateNegociosTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{negociosController.create}" value="#{bundle.CreateNegociosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{negociosController.prepareList}" value="#{bundle.CreateNegociosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateNegociosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

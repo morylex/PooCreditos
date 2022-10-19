@@ -22,8 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "usuarios", catalog = "curso_poo_creditos", schema = "")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
     @NamedQuery(name = "Usuarios.findByCodusuario", query = "SELECT u FROM Usuarios u WHERE u.codusuario = :codusuario"),
@@ -132,7 +129,6 @@ public class Usuarios implements Serializable {
         this.fechareg = fechareg;
     }
 
-    @XmlTransient
     public List<SunatPlameTipoDocumentoid> getSunatPlameTipoDocumentoidList() {
         return sunatPlameTipoDocumentoidList;
     }

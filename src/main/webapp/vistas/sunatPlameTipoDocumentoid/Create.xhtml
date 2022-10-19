@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSunatPlameTipoDocumentoidTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_codtipodocumentoid}" for="codtipodocumentoid" />
+                    <h:inputText id="codtipodocumentoid" value="#{sunatPlameTipoDocumentoidController.selected.codtipodocumentoid}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_codtipodocumentoid}" required="true" requiredMessage="#{bundle.CreateSunatPlameTipoDocumentoidRequiredMessage_codtipodocumentoid}"/>
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_codsunat}" for="codsunat" />
+                    <h:inputText id="codsunat" value="#{sunatPlameTipoDocumentoidController.selected.codsunat}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_codsunat}" />
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_denominacionAbreviada}" for="denominacionAbreviada" />
+                    <h:inputText id="denominacionAbreviada" value="#{sunatPlameTipoDocumentoidController.selected.denominacionAbreviada}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_denominacionAbreviada}" />
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{sunatPlameTipoDocumentoidController.selected.denominacion}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{sunatPlameTipoDocumentoidController.selected.condicion}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{sunatPlameTipoDocumentoidController.selected.estado}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{sunatPlameTipoDocumentoidController.selected.fechareg}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateSunatPlameTipoDocumentoidLabel_codusuario}" for="codusuario" />
+                    <h:selectOneMenu id="codusuario" value="#{sunatPlameTipoDocumentoidController.selected.codusuario}" title="#{bundle.CreateSunatPlameTipoDocumentoidTitle_codusuario}" >
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sunatPlameTipoDocumentoidController.create}" value="#{bundle.CreateSunatPlameTipoDocumentoidSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{sunatPlameTipoDocumentoidController.prepareList}" value="#{bundle.CreateSunatPlameTipoDocumentoidShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSunatPlameTipoDocumentoidIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

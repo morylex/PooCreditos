@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTiemposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTiemposLabel_codtiempo}"/>
+                    <h:outputText value="#{tiemposController.selected.codtiempo}" title="#{bundle.ViewTiemposTitle_codtiempo}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_codestablecimiento}"/>
+                    <h:outputText value="#{tiemposController.selected.codestablecimiento}" title="#{bundle.ViewTiemposTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_codperiodocontable}"/>
+                    <h:outputText value="#{tiemposController.selected.codperiodocontable}" title="#{bundle.ViewTiemposTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_denominacion}"/>
+                    <h:outputText value="#{tiemposController.selected.denominacion}" title="#{bundle.ViewTiemposTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_numeroDias}"/>
+                    <h:outputText value="#{tiemposController.selected.numeroDias}" title="#{bundle.ViewTiemposTitle_numeroDias}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_flagDomingos}"/>
+                    <h:outputText value="#{tiemposController.selected.flagDomingos}" title="#{bundle.ViewTiemposTitle_flagDomingos}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_codusuario}"/>
+                    <h:outputText value="#{tiemposController.selected.codusuario}" title="#{bundle.ViewTiemposTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_condicion}"/>
+                    <h:outputText value="#{tiemposController.selected.condicion}" title="#{bundle.ViewTiemposTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_estado}"/>
+                    <h:outputText value="#{tiemposController.selected.estado}" title="#{bundle.ViewTiemposTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewTiemposLabel_fechareg}"/>
+                    <h:outputText value="#{tiemposController.selected.fechareg}" title="#{bundle.ViewTiemposTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tiemposController.destroyAndView}" value="#{bundle.ViewTiemposDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTiemposEditLink}"/>
+                <br />
+                <h:commandLink action="#{tiemposController.prepareCreate}" value="#{bundle.ViewTiemposCreateLink}" />
+                <br />
+                <h:commandLink action="#{tiemposController.prepareList}" value="#{bundle.ViewTiemposShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTiemposIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

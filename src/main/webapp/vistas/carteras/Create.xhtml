@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCarterasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_codcartera}" for="codcartera" />
+                    <h:inputText id="codcartera" value="#{carterasController.selected.codcartera}" title="#{bundle.CreateCarterasTitle_codcartera}" required="true" requiredMessage="#{bundle.CreateCarterasRequiredMessage_codcartera}"/>
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{carterasController.selected.codestablecimiento}" title="#{bundle.CreateCarterasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{carterasController.selected.codperiodocontable}" title="#{bundle.CreateCarterasTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_denominacionAbreviada}" for="denominacionAbreviada" />
+                    <h:inputText id="denominacionAbreviada" value="#{carterasController.selected.denominacionAbreviada}" title="#{bundle.CreateCarterasTitle_denominacionAbreviada}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{carterasController.selected.denominacion}" title="#{bundle.CreateCarterasTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{carterasController.selected.codusuario}" title="#{bundle.CreateCarterasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{carterasController.selected.condicion}" title="#{bundle.CreateCarterasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{carterasController.selected.estado}" title="#{bundle.CreateCarterasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCarterasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{carterasController.selected.fechareg}" title="#{bundle.CreateCarterasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{carterasController.create}" value="#{bundle.CreateCarterasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{carterasController.prepareList}" value="#{bundle.CreateCarterasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCarterasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

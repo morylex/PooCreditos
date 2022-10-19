@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTipoPersonaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_codtipopersona}" for="codtipopersona" />
+                    <h:inputText id="codtipopersona" value="#{tipoPersonaController.selected.codtipopersona}" title="#{bundle.CreateTipoPersonaTitle_codtipopersona}" required="true" requiredMessage="#{bundle.CreateTipoPersonaRequiredMessage_codtipopersona}"/>
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{tipoPersonaController.selected.denominacion}" title="#{bundle.CreateTipoPersonaTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{tipoPersonaController.selected.codusuario}" title="#{bundle.CreateTipoPersonaTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{tipoPersonaController.selected.condicion}" title="#{bundle.CreateTipoPersonaTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{tipoPersonaController.selected.estado}" title="#{bundle.CreateTipoPersonaTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateTipoPersonaLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{tipoPersonaController.selected.fechareg}" title="#{bundle.CreateTipoPersonaTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tipoPersonaController.create}" value="#{bundle.CreateTipoPersonaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tipoPersonaController.prepareList}" value="#{bundle.CreateTipoPersonaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTipoPersonaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

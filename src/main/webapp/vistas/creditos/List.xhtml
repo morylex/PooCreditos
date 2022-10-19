@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCreditosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCreditosEmpty}" rendered="#{creditosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{creditosController.items.rowCount > 0}">
+                    <h:outputText value="#{creditosController.pagination.pageFirstItem + 1}..#{creditosController.pagination.pageLastItem + 1}/#{creditosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{creditosController.previous}" value="#{bundle.Previous} #{creditosController.pagination.pageSize}" rendered="#{creditosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{creditosController.next}" value="#{bundle.Next} #{creditosController.pagination.pageSize}" rendered="#{creditosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{creditosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codcredito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codcredito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codestablecimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codestablecimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codperiodocontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codperiodocontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codcliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codcliente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codcartera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codcartera}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codtipocredito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codtipocredito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codtasa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codtasa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_factorTasa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factorTasa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codtiempo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codtiempo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_duracionDias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.duracionDias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importePrestado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importePrestado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importeDevolver}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importeDevolver}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importeIntereses}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importeIntereses}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importeCuota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importeCuota}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_cuotaInicial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuotaInicial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importeAbonado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importeAbonado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importePendiente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importePendiente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechaEntrega}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaEntrega}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechaInicioPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaInicioPago}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechaVencimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaVencimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechaTermino}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaTermino}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_lastcodusuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastcodusuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_lastfechaupdate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastfechaupdate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codusuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codusuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_condicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.condicion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechareg}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechareg}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_flagTerminado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flagTerminado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_fechaFinalizado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFinalizado}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_flagRefinanciado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flagRefinanciado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_flagLiquidado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flagLiquidado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_flagCobracartera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flagCobracartera}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_codcobracartera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codcobracartera}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_importeExcedente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.importeExcedente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_flagObservado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flagObservado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_estadoRefinanciado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoRefinanciado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_diasFeriados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasFeriados}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreditosTitle_diasRetrasos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasRetrasos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{creditosController.prepareView}" value="#{bundle.ListCreditosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creditosController.prepareEdit}" value="#{bundle.ListCreditosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creditosController.destroy}" value="#{bundle.ListCreditosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{creditosController.prepareCreate}" value="#{bundle.ListCreditosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCreditosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

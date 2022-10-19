@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{usuariosController.selected.codusuario}" title="#{bundle.CreateUsuariosTitle_codusuario}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_codusuario}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_usuario}" for="usuario" />
+                    <h:inputTextarea rows="4" cols="30" id="usuario" value="#{usuariosController.selected.usuario}" title="#{bundle.CreateUsuariosTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_contrasena}" for="contrasena" />
+                    <h:inputTextarea rows="4" cols="30" id="contrasena" value="#{usuariosController.selected.contrasena}" title="#{bundle.CreateUsuariosTitle_contrasena}" />
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{usuariosController.selected.condicion}" title="#{bundle.CreateUsuariosTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{usuariosController.selected.estado}" title="#{bundle.CreateUsuariosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{usuariosController.selected.lastfechaupdate}" title="#{bundle.CreateUsuariosTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{usuariosController.selected.fechareg}" title="#{bundle.CreateUsuariosTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_codtipousuario}" for="codtipousuario" />
+                    <h:selectOneMenu id="codtipousuario" value="#{usuariosController.selected.codtipousuario}" title="#{bundle.CreateUsuariosTitle_codtipousuario}" >
+                        <f:selectItems value="#{tipoUsuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{usuariosController.create}" value="#{bundle.CreateUsuariosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{usuariosController.prepareList}" value="#{bundle.CreateUsuariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateUsuariosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

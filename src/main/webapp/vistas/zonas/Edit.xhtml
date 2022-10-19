@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditZonasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditZonasLabel_codzona}" for="codzona" />
+                    <h:inputText id="codzona" value="#{zonasController.selected.codzona}" title="#{bundle.EditZonasTitle_codzona}" required="true" requiredMessage="#{bundle.EditZonasRequiredMessage_codzona}"/>
+                    <h:outputLabel value="#{bundle.EditZonasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{zonasController.selected.codestablecimiento}" title="#{bundle.EditZonasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.EditZonasLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{zonasController.selected.denominacion}" title="#{bundle.EditZonasTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.EditZonasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{zonasController.selected.codusuario}" title="#{bundle.EditZonasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.EditZonasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{zonasController.selected.condicion}" title="#{bundle.EditZonasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.EditZonasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{zonasController.selected.estado}" title="#{bundle.EditZonasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditZonasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{zonasController.selected.fechareg}" title="#{bundle.EditZonasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{zonasController.update}" value="#{bundle.EditZonasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditZonasViewLink}"/>
+                <br />
+                <h:commandLink action="#{zonasController.prepareList}" value="#{bundle.EditZonasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditZonasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

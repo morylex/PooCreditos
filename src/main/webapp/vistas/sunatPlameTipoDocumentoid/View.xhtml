@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_codtipodocumentoid}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.codtipodocumentoid}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_codtipodocumentoid}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_codsunat}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.codsunat}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_codsunat}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_denominacionAbreviada}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.denominacionAbreviada}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_denominacionAbreviada}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_denominacion}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.denominacion}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_denominacion}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_condicion}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.condicion}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_estado}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.estado}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_fechareg}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.fechareg}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewSunatPlameTipoDocumentoidLabel_codusuario}"/>
+                    <h:outputText value="#{sunatPlameTipoDocumentoidController.selected.codusuario}" title="#{bundle.ViewSunatPlameTipoDocumentoidTitle_codusuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sunatPlameTipoDocumentoidController.destroyAndView}" value="#{bundle.ViewSunatPlameTipoDocumentoidDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSunatPlameTipoDocumentoidEditLink}"/>
+                <br />
+                <h:commandLink action="#{sunatPlameTipoDocumentoidController.prepareCreate}" value="#{bundle.ViewSunatPlameTipoDocumentoidCreateLink}" />
+                <br />
+                <h:commandLink action="#{sunatPlameTipoDocumentoidController.prepareList}" value="#{bundle.ViewSunatPlameTipoDocumentoidShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSunatPlameTipoDocumentoidIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

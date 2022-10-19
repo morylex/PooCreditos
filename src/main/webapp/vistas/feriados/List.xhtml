@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFeriadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFeriadosEmpty}" rendered="#{feriadosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{feriadosController.items.rowCount > 0}">
+                    <h:outputText value="#{feriadosController.pagination.pageFirstItem + 1}..#{feriadosController.pagination.pageLastItem + 1}/#{feriadosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{feriadosController.previous}" value="#{bundle.Previous} #{feriadosController.pagination.pageSize}" rendered="#{feriadosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{feriadosController.next}" value="#{bundle.Next} #{feriadosController.pagination.pageSize}" rendered="#{feriadosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{feriadosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_codferiado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codferiado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_codestablecimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codestablecimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_codperiodocontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codperiodocontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_denominacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.denominacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_fechaFeriado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFeriado}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_lastcodusuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastcodusuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_lastfechaupdate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastfechaupdate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_codusuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codusuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_condicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.condicion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFeriadosTitle_fechareg}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechareg}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{feriadosController.prepareView}" value="#{bundle.ListFeriadosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{feriadosController.prepareEdit}" value="#{bundle.ListFeriadosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{feriadosController.destroy}" value="#{bundle.ListFeriadosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{feriadosController.prepareCreate}" value="#{bundle.ListFeriadosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFeriadosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

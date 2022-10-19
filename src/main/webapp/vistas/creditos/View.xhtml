@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCreditosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codcredito}"/>
+                    <h:outputText value="#{creditosController.selected.codcredito}" title="#{bundle.ViewCreditosTitle_codcredito}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codestablecimiento}"/>
+                    <h:outputText value="#{creditosController.selected.codestablecimiento}" title="#{bundle.ViewCreditosTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codperiodocontable}"/>
+                    <h:outputText value="#{creditosController.selected.codperiodocontable}" title="#{bundle.ViewCreditosTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codcliente}"/>
+                    <h:outputText value="#{creditosController.selected.codcliente}" title="#{bundle.ViewCreditosTitle_codcliente}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codcartera}"/>
+                    <h:outputText value="#{creditosController.selected.codcartera}" title="#{bundle.ViewCreditosTitle_codcartera}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codtipocredito}"/>
+                    <h:outputText value="#{creditosController.selected.codtipocredito}" title="#{bundle.ViewCreditosTitle_codtipocredito}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codtasa}"/>
+                    <h:outputText value="#{creditosController.selected.codtasa}" title="#{bundle.ViewCreditosTitle_codtasa}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_factorTasa}"/>
+                    <h:outputText value="#{creditosController.selected.factorTasa}" title="#{bundle.ViewCreditosTitle_factorTasa}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codtiempo}"/>
+                    <h:outputText value="#{creditosController.selected.codtiempo}" title="#{bundle.ViewCreditosTitle_codtiempo}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_duracionDias}"/>
+                    <h:outputText value="#{creditosController.selected.duracionDias}" title="#{bundle.ViewCreditosTitle_duracionDias}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importePrestado}"/>
+                    <h:outputText value="#{creditosController.selected.importePrestado}" title="#{bundle.ViewCreditosTitle_importePrestado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importeDevolver}"/>
+                    <h:outputText value="#{creditosController.selected.importeDevolver}" title="#{bundle.ViewCreditosTitle_importeDevolver}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importeIntereses}"/>
+                    <h:outputText value="#{creditosController.selected.importeIntereses}" title="#{bundle.ViewCreditosTitle_importeIntereses}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importeCuota}"/>
+                    <h:outputText value="#{creditosController.selected.importeCuota}" title="#{bundle.ViewCreditosTitle_importeCuota}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_cuotaInicial}"/>
+                    <h:outputText value="#{creditosController.selected.cuotaInicial}" title="#{bundle.ViewCreditosTitle_cuotaInicial}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importeAbonado}"/>
+                    <h:outputText value="#{creditosController.selected.importeAbonado}" title="#{bundle.ViewCreditosTitle_importeAbonado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importePendiente}"/>
+                    <h:outputText value="#{creditosController.selected.importePendiente}" title="#{bundle.ViewCreditosTitle_importePendiente}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechaEntrega}"/>
+                    <h:outputText value="#{creditosController.selected.fechaEntrega}" title="#{bundle.ViewCreditosTitle_fechaEntrega}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechaInicioPago}"/>
+                    <h:outputText value="#{creditosController.selected.fechaInicioPago}" title="#{bundle.ViewCreditosTitle_fechaInicioPago}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechaVencimiento}"/>
+                    <h:outputText value="#{creditosController.selected.fechaVencimiento}" title="#{bundle.ViewCreditosTitle_fechaVencimiento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechaTermino}"/>
+                    <h:outputText value="#{creditosController.selected.fechaTermino}" title="#{bundle.ViewCreditosTitle_fechaTermino}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_lastcodusuario}"/>
+                    <h:outputText value="#{creditosController.selected.lastcodusuario}" title="#{bundle.ViewCreditosTitle_lastcodusuario}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_lastfechaupdate}"/>
+                    <h:outputText value="#{creditosController.selected.lastfechaupdate}" title="#{bundle.ViewCreditosTitle_lastfechaupdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codusuario}"/>
+                    <h:outputText value="#{creditosController.selected.codusuario}" title="#{bundle.ViewCreditosTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_condicion}"/>
+                    <h:outputText value="#{creditosController.selected.condicion}" title="#{bundle.ViewCreditosTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_estado}"/>
+                    <h:outputText value="#{creditosController.selected.estado}" title="#{bundle.ViewCreditosTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechareg}"/>
+                    <h:outputText value="#{creditosController.selected.fechareg}" title="#{bundle.ViewCreditosTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_flagTerminado}"/>
+                    <h:outputText value="#{creditosController.selected.flagTerminado}" title="#{bundle.ViewCreditosTitle_flagTerminado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_fechaFinalizado}"/>
+                    <h:outputText value="#{creditosController.selected.fechaFinalizado}" title="#{bundle.ViewCreditosTitle_fechaFinalizado}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_flagRefinanciado}"/>
+                    <h:outputText value="#{creditosController.selected.flagRefinanciado}" title="#{bundle.ViewCreditosTitle_flagRefinanciado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_flagLiquidado}"/>
+                    <h:outputText value="#{creditosController.selected.flagLiquidado}" title="#{bundle.ViewCreditosTitle_flagLiquidado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_flagCobracartera}"/>
+                    <h:outputText value="#{creditosController.selected.flagCobracartera}" title="#{bundle.ViewCreditosTitle_flagCobracartera}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_codcobracartera}"/>
+                    <h:outputText value="#{creditosController.selected.codcobracartera}" title="#{bundle.ViewCreditosTitle_codcobracartera}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_importeExcedente}"/>
+                    <h:outputText value="#{creditosController.selected.importeExcedente}" title="#{bundle.ViewCreditosTitle_importeExcedente}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_flagObservado}"/>
+                    <h:outputText value="#{creditosController.selected.flagObservado}" title="#{bundle.ViewCreditosTitle_flagObservado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_estadoRefinanciado}"/>
+                    <h:outputText value="#{creditosController.selected.estadoRefinanciado}" title="#{bundle.ViewCreditosTitle_estadoRefinanciado}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_diasFeriados}"/>
+                    <h:outputText value="#{creditosController.selected.diasFeriados}" title="#{bundle.ViewCreditosTitle_diasFeriados}"/>
+                    <h:outputText value="#{bundle.ViewCreditosLabel_diasRetrasos}"/>
+                    <h:outputText value="#{creditosController.selected.diasRetrasos}" title="#{bundle.ViewCreditosTitle_diasRetrasos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{creditosController.destroyAndView}" value="#{bundle.ViewCreditosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCreditosEditLink}"/>
+                <br />
+                <h:commandLink action="#{creditosController.prepareCreate}" value="#{bundle.ViewCreditosCreateLink}" />
+                <br />
+                <h:commandLink action="#{creditosController.prepareList}" value="#{bundle.ViewCreditosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCreditosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

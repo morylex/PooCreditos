@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPersonasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_codpersona}" for="codpersona" />
+                    <h:inputText id="codpersona" value="#{personasController.selected.codpersona}" title="#{bundle.EditPersonasTitle_codpersona}" required="true" requiredMessage="#{bundle.EditPersonasRequiredMessage_codpersona}"/>
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{personasController.selected.codestablecimiento}" title="#{bundle.EditPersonasTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_codtipopersona}" for="codtipopersona" />
+                    <h:inputText id="codtipopersona" value="#{personasController.selected.codtipopersona}" title="#{bundle.EditPersonasTitle_codtipopersona}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_codtipodocumentoid}" for="codtipodocumentoid" />
+                    <h:inputText id="codtipodocumentoid" value="#{personasController.selected.codtipodocumentoid}" title="#{bundle.EditPersonasTitle_codtipodocumentoid}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_numeroDocumento}" for="numeroDocumento" />
+                    <h:inputText id="numeroDocumento" value="#{personasController.selected.numeroDocumento}" title="#{bundle.EditPersonasTitle_numeroDocumento}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_apellidoPaterno}" for="apellidoPaterno" />
+                    <h:inputText id="apellidoPaterno" value="#{personasController.selected.apellidoPaterno}" title="#{bundle.EditPersonasTitle_apellidoPaterno}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_apellidoMaterno}" for="apellidoMaterno" />
+                    <h:inputText id="apellidoMaterno" value="#{personasController.selected.apellidoMaterno}" title="#{bundle.EditPersonasTitle_apellidoMaterno}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{personasController.selected.nombres}" title="#{bundle.EditPersonasTitle_nombres}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_nombreCompleto}" for="nombreCompleto" />
+                    <h:inputText id="nombreCompleto" value="#{personasController.selected.nombreCompleto}" title="#{bundle.EditPersonasTitle_nombreCompleto}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{personasController.selected.direccion}" title="#{bundle.EditPersonasTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{personasController.selected.email}" title="#{bundle.EditPersonasTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{personasController.selected.telefono}" title="#{bundle.EditPersonasTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_remuneracion}" for="remuneracion" />
+                    <h:inputText id="remuneracion" value="#{personasController.selected.remuneracion}" title="#{bundle.EditPersonasTitle_remuneracion}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_lastcodusuario}" for="lastcodusuario" />
+                    <h:inputText id="lastcodusuario" value="#{personasController.selected.lastcodusuario}" title="#{bundle.EditPersonasTitle_lastcodusuario}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{personasController.selected.lastfechaupdate}" title="#{bundle.EditPersonasTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{personasController.selected.codusuario}" title="#{bundle.EditPersonasTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{personasController.selected.condicion}" title="#{bundle.EditPersonasTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{personasController.selected.estado}" title="#{bundle.EditPersonasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{personasController.selected.fechareg}" title="#{bundle.EditPersonasTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPersonasLabel_flagPrestamosActivos}" for="flagPrestamosActivos" />
+                    <h:inputText id="flagPrestamosActivos" value="#{personasController.selected.flagPrestamosActivos}" title="#{bundle.EditPersonasTitle_flagPrestamosActivos}" />
+                </h:panelGrid>
+                <h:commandLink action="#{personasController.update}" value="#{bundle.EditPersonasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPersonasViewLink}"/>
+                <br />
+                <h:commandLink action="#{personasController.prepareList}" value="#{bundle.EditPersonasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPersonasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

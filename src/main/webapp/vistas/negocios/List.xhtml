@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListNegociosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListNegociosEmpty}" rendered="#{negociosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{negociosController.items.rowCount > 0}">
+                    <h:outputText value="#{negociosController.pagination.pageFirstItem + 1}..#{negociosController.pagination.pageLastItem + 1}/#{negociosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{negociosController.previous}" value="#{bundle.Previous} #{negociosController.pagination.pageSize}" rendered="#{negociosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{negociosController.next}" value="#{bundle.Next} #{negociosController.pagination.pageSize}" rendered="#{negociosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{negociosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_codnegocio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codnegocio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_codestablecimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codestablecimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_codperiodocontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codperiodocontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_denominacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.denominacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_codusuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codusuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_condicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.condicion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListNegociosTitle_fechareg}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechareg}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{negociosController.prepareView}" value="#{bundle.ListNegociosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{negociosController.prepareEdit}" value="#{bundle.ListNegociosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{negociosController.destroy}" value="#{bundle.ListNegociosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{negociosController.prepareCreate}" value="#{bundle.ListNegociosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListNegociosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

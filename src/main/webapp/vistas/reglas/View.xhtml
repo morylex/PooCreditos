@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewReglasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewReglasLabel_codregla}"/>
+                    <h:outputText value="#{reglasController.selected.codregla}" title="#{bundle.ViewReglasTitle_codregla}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_codestablecimiento}"/>
+                    <h:outputText value="#{reglasController.selected.codestablecimiento}" title="#{bundle.ViewReglasTitle_codestablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_codperiodocontable}"/>
+                    <h:outputText value="#{reglasController.selected.codperiodocontable}" title="#{bundle.ViewReglasTitle_codperiodocontable}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_codtasa}"/>
+                    <h:outputText value="#{reglasController.selected.codtasa}" title="#{bundle.ViewReglasTitle_codtasa}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_codtiempo}"/>
+                    <h:outputText value="#{reglasController.selected.codtiempo}" title="#{bundle.ViewReglasTitle_codtiempo}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_lastcodusuario}"/>
+                    <h:outputText value="#{reglasController.selected.lastcodusuario}" title="#{bundle.ViewReglasTitle_lastcodusuario}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_lastfechaupdate}"/>
+                    <h:outputText value="#{reglasController.selected.lastfechaupdate}" title="#{bundle.ViewReglasTitle_lastfechaupdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewReglasLabel_codusuario}"/>
+                    <h:outputText value="#{reglasController.selected.codusuario}" title="#{bundle.ViewReglasTitle_codusuario}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_condicion}"/>
+                    <h:outputText value="#{reglasController.selected.condicion}" title="#{bundle.ViewReglasTitle_condicion}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_estado}"/>
+                    <h:outputText value="#{reglasController.selected.estado}" title="#{bundle.ViewReglasTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewReglasLabel_fechareg}"/>
+                    <h:outputText value="#{reglasController.selected.fechareg}" title="#{bundle.ViewReglasTitle_fechareg}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{reglasController.destroyAndView}" value="#{bundle.ViewReglasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewReglasEditLink}"/>
+                <br />
+                <h:commandLink action="#{reglasController.prepareCreate}" value="#{bundle.ViewReglasCreateLink}" />
+                <br />
+                <h:commandLink action="#{reglasController.prepareList}" value="#{bundle.ViewReglasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewReglasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

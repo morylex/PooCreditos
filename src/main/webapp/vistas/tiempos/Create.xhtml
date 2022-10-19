@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTiemposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_codtiempo}" for="codtiempo" />
+                    <h:inputText id="codtiempo" value="#{tiemposController.selected.codtiempo}" title="#{bundle.CreateTiemposTitle_codtiempo}" required="true" requiredMessage="#{bundle.CreateTiemposRequiredMessage_codtiempo}"/>
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{tiemposController.selected.codestablecimiento}" title="#{bundle.CreateTiemposTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{tiemposController.selected.codperiodocontable}" title="#{bundle.CreateTiemposTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{tiemposController.selected.denominacion}" title="#{bundle.CreateTiemposTitle_denominacion}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_numeroDias}" for="numeroDias" />
+                    <h:inputText id="numeroDias" value="#{tiemposController.selected.numeroDias}" title="#{bundle.CreateTiemposTitle_numeroDias}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_flagDomingos}" for="flagDomingos" />
+                    <h:inputText id="flagDomingos" value="#{tiemposController.selected.flagDomingos}" title="#{bundle.CreateTiemposTitle_flagDomingos}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{tiemposController.selected.codusuario}" title="#{bundle.CreateTiemposTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{tiemposController.selected.condicion}" title="#{bundle.CreateTiemposTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{tiemposController.selected.estado}" title="#{bundle.CreateTiemposTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateTiemposLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{tiemposController.selected.fechareg}" title="#{bundle.CreateTiemposTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tiemposController.create}" value="#{bundle.CreateTiemposSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tiemposController.prepareList}" value="#{bundle.CreateTiemposShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTiemposIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

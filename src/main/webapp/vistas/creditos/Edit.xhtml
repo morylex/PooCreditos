@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCreditosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codcredito}" for="codcredito" />
+                    <h:inputText id="codcredito" value="#{creditosController.selected.codcredito}" title="#{bundle.EditCreditosTitle_codcredito}" required="true" requiredMessage="#{bundle.EditCreditosRequiredMessage_codcredito}"/>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codestablecimiento}" for="codestablecimiento" />
+                    <h:inputText id="codestablecimiento" value="#{creditosController.selected.codestablecimiento}" title="#{bundle.EditCreditosTitle_codestablecimiento}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codperiodocontable}" for="codperiodocontable" />
+                    <h:inputText id="codperiodocontable" value="#{creditosController.selected.codperiodocontable}" title="#{bundle.EditCreditosTitle_codperiodocontable}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codcliente}" for="codcliente" />
+                    <h:inputText id="codcliente" value="#{creditosController.selected.codcliente}" title="#{bundle.EditCreditosTitle_codcliente}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codcartera}" for="codcartera" />
+                    <h:inputText id="codcartera" value="#{creditosController.selected.codcartera}" title="#{bundle.EditCreditosTitle_codcartera}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codtipocredito}" for="codtipocredito" />
+                    <h:inputText id="codtipocredito" value="#{creditosController.selected.codtipocredito}" title="#{bundle.EditCreditosTitle_codtipocredito}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codtasa}" for="codtasa" />
+                    <h:inputText id="codtasa" value="#{creditosController.selected.codtasa}" title="#{bundle.EditCreditosTitle_codtasa}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_factorTasa}" for="factorTasa" />
+                    <h:inputText id="factorTasa" value="#{creditosController.selected.factorTasa}" title="#{bundle.EditCreditosTitle_factorTasa}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codtiempo}" for="codtiempo" />
+                    <h:inputText id="codtiempo" value="#{creditosController.selected.codtiempo}" title="#{bundle.EditCreditosTitle_codtiempo}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_duracionDias}" for="duracionDias" />
+                    <h:inputText id="duracionDias" value="#{creditosController.selected.duracionDias}" title="#{bundle.EditCreditosTitle_duracionDias}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importePrestado}" for="importePrestado" />
+                    <h:inputText id="importePrestado" value="#{creditosController.selected.importePrestado}" title="#{bundle.EditCreditosTitle_importePrestado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importeDevolver}" for="importeDevolver" />
+                    <h:inputText id="importeDevolver" value="#{creditosController.selected.importeDevolver}" title="#{bundle.EditCreditosTitle_importeDevolver}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importeIntereses}" for="importeIntereses" />
+                    <h:inputText id="importeIntereses" value="#{creditosController.selected.importeIntereses}" title="#{bundle.EditCreditosTitle_importeIntereses}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importeCuota}" for="importeCuota" />
+                    <h:inputText id="importeCuota" value="#{creditosController.selected.importeCuota}" title="#{bundle.EditCreditosTitle_importeCuota}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_cuotaInicial}" for="cuotaInicial" />
+                    <h:inputText id="cuotaInicial" value="#{creditosController.selected.cuotaInicial}" title="#{bundle.EditCreditosTitle_cuotaInicial}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importeAbonado}" for="importeAbonado" />
+                    <h:inputText id="importeAbonado" value="#{creditosController.selected.importeAbonado}" title="#{bundle.EditCreditosTitle_importeAbonado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importePendiente}" for="importePendiente" />
+                    <h:inputText id="importePendiente" value="#{creditosController.selected.importePendiente}" title="#{bundle.EditCreditosTitle_importePendiente}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechaEntrega}" for="fechaEntrega" />
+                    <h:inputText id="fechaEntrega" value="#{creditosController.selected.fechaEntrega}" title="#{bundle.EditCreditosTitle_fechaEntrega}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechaInicioPago}" for="fechaInicioPago" />
+                    <h:inputText id="fechaInicioPago" value="#{creditosController.selected.fechaInicioPago}" title="#{bundle.EditCreditosTitle_fechaInicioPago}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechaVencimiento}" for="fechaVencimiento" />
+                    <h:inputText id="fechaVencimiento" value="#{creditosController.selected.fechaVencimiento}" title="#{bundle.EditCreditosTitle_fechaVencimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechaTermino}" for="fechaTermino" />
+                    <h:inputText id="fechaTermino" value="#{creditosController.selected.fechaTermino}" title="#{bundle.EditCreditosTitle_fechaTermino}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_lastcodusuario}" for="lastcodusuario" />
+                    <h:inputText id="lastcodusuario" value="#{creditosController.selected.lastcodusuario}" title="#{bundle.EditCreditosTitle_lastcodusuario}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_lastfechaupdate}" for="lastfechaupdate" />
+                    <h:inputText id="lastfechaupdate" value="#{creditosController.selected.lastfechaupdate}" title="#{bundle.EditCreditosTitle_lastfechaupdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codusuario}" for="codusuario" />
+                    <h:inputText id="codusuario" value="#{creditosController.selected.codusuario}" title="#{bundle.EditCreditosTitle_codusuario}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_condicion}" for="condicion" />
+                    <h:inputText id="condicion" value="#{creditosController.selected.condicion}" title="#{bundle.EditCreditosTitle_condicion}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{creditosController.selected.estado}" title="#{bundle.EditCreditosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechareg}" for="fechareg" />
+                    <h:inputText id="fechareg" value="#{creditosController.selected.fechareg}" title="#{bundle.EditCreditosTitle_fechareg}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_flagTerminado}" for="flagTerminado" />
+                    <h:inputText id="flagTerminado" value="#{creditosController.selected.flagTerminado}" title="#{bundle.EditCreditosTitle_flagTerminado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_fechaFinalizado}" for="fechaFinalizado" />
+                    <h:inputText id="fechaFinalizado" value="#{creditosController.selected.fechaFinalizado}" title="#{bundle.EditCreditosTitle_fechaFinalizado}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_flagRefinanciado}" for="flagRefinanciado" />
+                    <h:inputText id="flagRefinanciado" value="#{creditosController.selected.flagRefinanciado}" title="#{bundle.EditCreditosTitle_flagRefinanciado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_flagLiquidado}" for="flagLiquidado" />
+                    <h:inputText id="flagLiquidado" value="#{creditosController.selected.flagLiquidado}" title="#{bundle.EditCreditosTitle_flagLiquidado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_flagCobracartera}" for="flagCobracartera" />
+                    <h:inputText id="flagCobracartera" value="#{creditosController.selected.flagCobracartera}" title="#{bundle.EditCreditosTitle_flagCobracartera}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_codcobracartera}" for="codcobracartera" />
+                    <h:inputText id="codcobracartera" value="#{creditosController.selected.codcobracartera}" title="#{bundle.EditCreditosTitle_codcobracartera}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_importeExcedente}" for="importeExcedente" />
+                    <h:inputText id="importeExcedente" value="#{creditosController.selected.importeExcedente}" title="#{bundle.EditCreditosTitle_importeExcedente}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_flagObservado}" for="flagObservado" />
+                    <h:inputText id="flagObservado" value="#{creditosController.selected.flagObservado}" title="#{bundle.EditCreditosTitle_flagObservado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_estadoRefinanciado}" for="estadoRefinanciado" />
+                    <h:inputText id="estadoRefinanciado" value="#{creditosController.selected.estadoRefinanciado}" title="#{bundle.EditCreditosTitle_estadoRefinanciado}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_diasFeriados}" for="diasFeriados" />
+                    <h:inputText id="diasFeriados" value="#{creditosController.selected.diasFeriados}" title="#{bundle.EditCreditosTitle_diasFeriados}" />
+                    <h:outputLabel value="#{bundle.EditCreditosLabel_diasRetrasos}" for="diasRetrasos" />
+                    <h:inputText id="diasRetrasos" value="#{creditosController.selected.diasRetrasos}" title="#{bundle.EditCreditosTitle_diasRetrasos}" />
+                </h:panelGrid>
+                <h:commandLink action="#{creditosController.update}" value="#{bundle.EditCreditosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCreditosViewLink}"/>
+                <br />
+                <h:commandLink action="#{creditosController.prepareList}" value="#{bundle.EditCreditosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCreditosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
