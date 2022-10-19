@@ -1,0 +1,6 @@
+@startuml
+class entidades.Clientes
+class entidades.SunatPlameTipoDocumentoid
+class entidades.TipoUsuario
+class entidades.Usuarios
+@enduml

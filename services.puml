@@ -1,0 +1,14 @@
+@startuml
+abstract class servicios.AbstractFacade
+class entidades.Clientes
+class entidades.SunatPlameTipoDocumentoid
+class entidades.TipoUsuario
+class entidades.Usuarios
+class java.util.List
+class javax.persistence.EntityManager
+class javax.ws.rs.core.MediaType
+class servicios.ClientesFacadeREST
+class servicios.SunatPlameTipoDocumentoidFacadeREST
+class servicios.TipoUsuarioFacadeREST
+class servicios.UsuariosFacadeREST
+@enduml

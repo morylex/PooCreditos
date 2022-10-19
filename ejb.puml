@@ -1,0 +1,7 @@
+@startuml
+abstract class ejb.AbstractFacade
+interface ejb.ClientesFacadeLocal
+interface ejb.SunatPlameTipoDocumentoidFacadeLocal
+interface ejb.TipoUsuarioFacadeLocal
+interface ejb.UsuariosFacadeLocal
+@enduml
