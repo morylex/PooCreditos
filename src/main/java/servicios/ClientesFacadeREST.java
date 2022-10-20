@@ -63,7 +63,7 @@ public class ClientesFacadeREST extends AbstractFacade<Clientes> {
 
     @GET
     @Override
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML})
     public List<Clientes> findAll() {
         return super.findAll();
     }
